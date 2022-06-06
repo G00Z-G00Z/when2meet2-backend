@@ -1,13 +1,13 @@
-version: "3.3"
-services: 
+version: '3.3'
+services:
   mongodb:
-      container_name: mongodb-when2meet2
-      image: mongo:4.4.6
-      volumes:
-        - ./mongo:/data/db
-      ports:
-        - "27017:27017"
-      environment:
-        - MONGO_INITDB_ROOT_USERNAME=app_user
-        - MONGO_INITDB_ROOT_PASSWORD=app_password
-        - MONGO_INITDB_DATABASE=admin
+    container_name: mongodb-when2meet2
+    image: mongo:4.4.6
+    volumes:
+      - ./mongo:/data/db
+    ports:
+      - '${DB_PORT:-27017}:27017'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USER:-admin}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD:-1234}
+      - MONGO_INITDB_DATABASE=${MONGO_INIT_DATABASE:-admin}
