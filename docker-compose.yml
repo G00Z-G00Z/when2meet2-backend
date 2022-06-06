@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.1'
 services:
   mongodb:
     container_name: mongodb-when2meet2
@@ -10,4 +10,3 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USER:-admin}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD:-1234}
-      - MONGO_INITDB_DATABASE=${MONGO_INIT_DATABASE:-admin}
