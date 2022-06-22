@@ -10,3 +10,15 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USER:-admin}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD:-1234}
+
+  node:
+    image: 'node:18-alpine3.15'
+    user: 'node'
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=development
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./:/home/node/app
+    command: 'yarn run start:watch'
